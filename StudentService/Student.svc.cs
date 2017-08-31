@@ -11,8 +11,29 @@ namespace StudentService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Student.svc or Student.svc.cs at the Solution Explorer and start debugging.
     public class Student : IStudent
     {
-        public void DoWork()
+
+        public List<string> GetStudents()
         {
+            List<string> Students = new List<string>();
+            return Students;
         }
+
+        public void AddStudent(string fullName)
+        {
+            
+        }
+
+        public void EditStudent(string Id)
+        {
+
+        }
+
+        public void DeleteStudent(string Id)
+        {
+
+        }
+
+
+        
     }
 }
