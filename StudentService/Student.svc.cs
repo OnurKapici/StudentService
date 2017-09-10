@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentService.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,11 +12,14 @@ namespace StudentService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Student.svc or Student.svc.cs at the Solution Explorer and start debugging.
     public class Student : IStudent
     {
-
-        public List<string> GetStudents()
+        private ApplicationDbContext db = new ApplicationDbContext();
+        public List<Models.Student> GetStudents()
         {
 
-            List<string> Students = new List<string>();
+            List<Models.Student> Students = new List<Models.Student>();
+
+            Students = db.Students.ToList();
+
             return Students;
         }
 

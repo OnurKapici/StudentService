@@ -21,6 +21,6 @@ namespace StudentService
         void DeleteStudent(string fullName);
 
         [OperationContract]
-        List<string> GetStudents();
+        List<Models.Student> GetStudents();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientMvc5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,16 @@ namespace ClientMvc5.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (StudentServices.StudentClient ServiceClient = new StudentServices.StudentClient())
+            {
+               
+
+                string[] model = ServiceClient.GetStudents();
+                ViewBag.Ogrenciler = model;
+
+               return View(model);
+
+            }
         }
 
         public ActionResult About()
