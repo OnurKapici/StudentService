@@ -15,12 +15,33 @@ namespace ClientMvc5.Controllers
             {
                
 
-                string[] model = ServiceClient.GetStudents();
-                ViewBag.Ogrenciler = model;
+                
+                ViewBag.Ogrenciler =  ServiceClient.GetStudents().ToList();
 
-               return View(model);
+               return View();
 
             }
+        }
+
+
+        public ActionResult StudentCreate()
+        {
+           
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult StudentCreate(string FullName,string StudentNo, string ClassNo)
+        {
+            using (StudentServices.StudentClient ServiceClient = new StudentServices.StudentClient())
+            {
+                ServiceClient.AddStudent(FullName, StudentNo, ClassNo);
+
+            }
+            ViewBag.StudentCreate = "Öğrenci Katdedildi";
+
+                return View();
         }
 
         public ActionResult About()

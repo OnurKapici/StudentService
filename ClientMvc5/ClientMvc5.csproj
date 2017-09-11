@@ -157,6 +157,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\StudentServices\ClientMvc5.StudentServices.Student.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\StudentServices\Student.disco" />
     <None Include="Connected Services\StudentServices\configuration91.svcinfo" />
     <None Include="Connected Services\StudentServices\configuration.svcinfo" />
@@ -210,6 +213,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\StudentCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

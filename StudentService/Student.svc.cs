@@ -23,9 +23,19 @@ namespace StudentService
             return Students;
         }
 
-        public void AddStudent(string fullName)
+        public void AddStudent(string FullName, string StudentNo, string ClassNo)
         {
-            
+
+            Models.Student Student = new Models.Student();
+            Student.FullName = FullName;
+            Student.StudentNo = StudentNo;
+            Student.ClassNo = ClassNo;
+            db.Students.Add(Student);
+            db.SaveChanges();
+
+                
+         
+
         }
 
         public void EditStudent(string Id)

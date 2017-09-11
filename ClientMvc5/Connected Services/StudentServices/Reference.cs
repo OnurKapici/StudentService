@@ -9,17 +9,112 @@
 //------------------------------------------------------------------------------
 
 namespace ClientMvc5.StudentServices {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://schemas.datacontract.org/2004/07/StudentService.Models")]
+    [System.SerializableAttribute()]
+    public partial class Student : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClassNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FullNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StudentNoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClassNo {
+            get {
+                return this.ClassNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClassNoField, value) != true)) {
+                    this.ClassNoField = value;
+                    this.RaisePropertyChanged("ClassNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FullName {
+            get {
+                return this.FullNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StudentNo {
+            get {
+                return this.StudentNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StudentNoField, value) != true)) {
+                    this.StudentNoField = value;
+                    this.RaisePropertyChanged("StudentNo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StudentServices.IStudent")]
     public interface IStudent {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/AddStudent", ReplyAction="http://tempuri.org/IStudent/AddStudentResponse")]
-        void AddStudent(string fullName);
+        void AddStudent(string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/AddStudent", ReplyAction="http://tempuri.org/IStudent/AddStudentResponse")]
-        System.Threading.Tasks.Task AddStudentAsync(string fullName);
+        System.Threading.Tasks.Task AddStudentAsync(string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
         void EditStudent(string fullName);
@@ -34,10 +129,10 @@ namespace ClientMvc5.StudentServices {
         System.Threading.Tasks.Task DeleteStudentAsync(string fullName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetStudents", ReplyAction="http://tempuri.org/IStudent/GetStudentsResponse")]
-        string[] GetStudents();
+        ClientMvc5.StudentServices.Student[] GetStudents();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetStudents", ReplyAction="http://tempuri.org/IStudent/GetStudentsResponse")]
-        System.Threading.Tasks.Task<string[]> GetStudentsAsync();
+        System.Threading.Tasks.Task<ClientMvc5.StudentServices.Student[]> GetStudentsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,12 +162,12 @@ namespace ClientMvc5.StudentServices {
                 base(binding, remoteAddress) {
         }
         
-        public void AddStudent(string fullName) {
-            base.Channel.AddStudent(fullName);
+        public void AddStudent(string FullName, string StudentNo, string ClassNo) {
+            base.Channel.AddStudent(FullName, StudentNo, ClassNo);
         }
         
-        public System.Threading.Tasks.Task AddStudentAsync(string fullName) {
-            return base.Channel.AddStudentAsync(fullName);
+        public System.Threading.Tasks.Task AddStudentAsync(string FullName, string StudentNo, string ClassNo) {
+            return base.Channel.AddStudentAsync(FullName, StudentNo, ClassNo);
         }
         
         public void EditStudent(string fullName) {
@@ -91,11 +186,11 @@ namespace ClientMvc5.StudentServices {
             return base.Channel.DeleteStudentAsync(fullName);
         }
         
-        public string[] GetStudents() {
+        public ClientMvc5.StudentServices.Student[] GetStudents() {
             return base.Channel.GetStudents();
         }
         
-        public System.Threading.Tasks.Task<string[]> GetStudentsAsync() {
+        public System.Threading.Tasks.Task<ClientMvc5.StudentServices.Student[]> GetStudentsAsync() {
             return base.Channel.GetStudentsAsync();
         }
     }

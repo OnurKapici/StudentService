@@ -12,7 +12,7 @@ namespace StudentService
     public interface IStudent
     {
         [OperationContract]
-        void AddStudent(string fullName);
+        void AddStudent(string FullName, string StudentNo, string ClassNo);
 
         [OperationContract]
         void EditStudent(string fullName);

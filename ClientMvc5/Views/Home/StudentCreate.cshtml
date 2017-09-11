@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "StudentCreate";
+}
+
+<h2>StudentCreate</h2>
+
+<h3 style="color:darkgreen">@ViewBag.StudentCreate</h3>
+
+@using (Html.BeginForm("StudentCreate","Home",FormMethod.Post, null))
+{
+    <input type="text" name="FullName" placeholder="Öğrenci Adı" />
+    <input type="text" name="StudentNo" placeholder="Öğrenci Numarası" />
+    <input type="text" name="ClassNo" placeholder="Öğrenci Sınıfı" />
+    <input type="submit" value="Kaydet" />
+}
