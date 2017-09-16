@@ -39,9 +39,34 @@ namespace ClientMvc5.Controllers
                 ServiceClient.AddStudent(FullName, StudentNo, ClassNo);
 
             }
-            ViewBag.StudentCreate = "Öğrenci Katdedildi";
+            ViewBag.StudentCreate = "Öğrenci Kaydedildi";
 
                 return View();
+        }
+
+        
+        public ActionResult StudentDelete(int Id)
+        {
+            using (StudentServices.StudentClient ServiceClient = new StudentServices.StudentClient())
+            {
+                ServiceClient.DeleteStudent(Id);
+
+            }
+            ViewBag.StudentDelete = "Öğrenci Silindi";
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult StudentEdit(int Id)
+        {
+            using (StudentServices.StudentClient ServiceClient = new StudentServices.StudentClient())
+            {
+                ServiceClient.EditStudent(Id);
+
+            }
+            ViewBag.StudentEdit = "Öğrenci Düzenlendi";
+
+            return View();
         }
 
         public ActionResult About()

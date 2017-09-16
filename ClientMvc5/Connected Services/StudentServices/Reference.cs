@@ -117,16 +117,16 @@ namespace ClientMvc5.StudentServices {
         System.Threading.Tasks.Task AddStudentAsync(string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
-        void EditStudent(string fullName);
+        void EditStudent(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
-        System.Threading.Tasks.Task EditStudentAsync(string fullName);
+        System.Threading.Tasks.Task EditStudentAsync(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/DeleteStudent", ReplyAction="http://tempuri.org/IStudent/DeleteStudentResponse")]
-        void DeleteStudent(string fullName);
+        void DeleteStudent(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/DeleteStudent", ReplyAction="http://tempuri.org/IStudent/DeleteStudentResponse")]
-        System.Threading.Tasks.Task DeleteStudentAsync(string fullName);
+        System.Threading.Tasks.Task DeleteStudentAsync(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/GetStudents", ReplyAction="http://tempuri.org/IStudent/GetStudentsResponse")]
         ClientMvc5.StudentServices.Student[] GetStudents();
@@ -170,20 +170,20 @@ namespace ClientMvc5.StudentServices {
             return base.Channel.AddStudentAsync(FullName, StudentNo, ClassNo);
         }
         
-        public void EditStudent(string fullName) {
-            base.Channel.EditStudent(fullName);
+        public void EditStudent(int Id) {
+            base.Channel.EditStudent(Id);
         }
         
-        public System.Threading.Tasks.Task EditStudentAsync(string fullName) {
-            return base.Channel.EditStudentAsync(fullName);
+        public System.Threading.Tasks.Task EditStudentAsync(int Id) {
+            return base.Channel.EditStudentAsync(Id);
         }
         
-        public void DeleteStudent(string fullName) {
-            base.Channel.DeleteStudent(fullName);
+        public void DeleteStudent(int Id) {
+            base.Channel.DeleteStudent(Id);
         }
         
-        public System.Threading.Tasks.Task DeleteStudentAsync(string fullName) {
-            return base.Channel.DeleteStudentAsync(fullName);
+        public System.Threading.Tasks.Task DeleteStudentAsync(int Id) {
+            return base.Channel.DeleteStudentAsync(Id);
         }
         
         public ClientMvc5.StudentServices.Student[] GetStudents() {

@@ -38,14 +38,16 @@ namespace StudentService
 
         }
 
-        public void EditStudent(string Id)
+        public void EditStudent(int Id)
         {
 
         }
 
-        public void DeleteStudent(string Id)
+        public void DeleteStudent(int Id)
         {
-
+            Models.Student student = db.Students.Find(Id);
+            db.Students.Remove(student);
+            db.SaveChanges();
         }
 
 

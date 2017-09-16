@@ -15,10 +15,10 @@ namespace StudentService
         void AddStudent(string FullName, string StudentNo, string ClassNo);
 
         [OperationContract]
-        void EditStudent(string fullName);
+        void EditStudent(int Id);
 
         [OperationContract]
-        void DeleteStudent(string fullName);
+        void DeleteStudent(int Id);
 
         [OperationContract]
         List<Models.Student> GetStudents();
