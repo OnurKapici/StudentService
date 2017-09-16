@@ -1,6 +1,7 @@
 ﻿using StudentService.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -38,8 +39,16 @@ namespace StudentService
 
         }
 
-        public void EditStudent(int Id)
+        public void EditStudent(int Id, string FullName, string StudentNo, string ClassNo)
         {
+
+            Models.Student Student = db.Students.Find(Id);
+            Student.FullName = FullName;
+            Student.StudentNo = StudentNo;
+            Student.ClassNo = ClassNo;
+            
+            db.Entry(Student).State=EntityState.Modified;
+            db.SaveChanges();
 
         }
 

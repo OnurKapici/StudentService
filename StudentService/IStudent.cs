@@ -15,7 +15,7 @@ namespace StudentService
         void AddStudent(string FullName, string StudentNo, string ClassNo);
 
         [OperationContract]
-        void EditStudent(int Id);
+        void EditStudent(int Id, string FullName, string StudentNo, string ClassNo);
 
         [OperationContract]
         void DeleteStudent(int Id);

@@ -117,10 +117,10 @@ namespace ClientMvc5.StudentServices {
         System.Threading.Tasks.Task AddStudentAsync(string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
-        void EditStudent(int Id);
+        void EditStudent(int Id, string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/EditStudent", ReplyAction="http://tempuri.org/IStudent/EditStudentResponse")]
-        System.Threading.Tasks.Task EditStudentAsync(int Id);
+        System.Threading.Tasks.Task EditStudentAsync(int Id, string FullName, string StudentNo, string ClassNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudent/DeleteStudent", ReplyAction="http://tempuri.org/IStudent/DeleteStudentResponse")]
         void DeleteStudent(int Id);
@@ -170,12 +170,12 @@ namespace ClientMvc5.StudentServices {
             return base.Channel.AddStudentAsync(FullName, StudentNo, ClassNo);
         }
         
-        public void EditStudent(int Id) {
-            base.Channel.EditStudent(Id);
+        public void EditStudent(int Id, string FullName, string StudentNo, string ClassNo) {
+            base.Channel.EditStudent(Id, FullName, StudentNo, ClassNo);
         }
         
-        public System.Threading.Tasks.Task EditStudentAsync(int Id) {
-            return base.Channel.EditStudentAsync(Id);
+        public System.Threading.Tasks.Task EditStudentAsync(int Id, string FullName, string StudentNo, string ClassNo) {
+            return base.Channel.EditStudentAsync(Id, FullName, StudentNo, ClassNo);
         }
         
         public void DeleteStudent(int Id) {

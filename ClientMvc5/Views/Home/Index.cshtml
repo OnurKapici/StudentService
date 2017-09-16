@@ -11,7 +11,7 @@
             <ul>
                 @foreach (var item in ViewBag.Ogrenciler)
                 {
-                <li>@Html.ActionLink("Sil", "StudentDelete", new { id = item.Id })--@Html.ActionLink("Düzenle", "StudentEdit", new { id = item.Id })-- @item.FullName - @item.ClassNo</li>
+                <li>@Html.ActionLink("Sil", "StudentDelete", new { id = item.Id})--@Html.ActionLink("Düzenle", "StudentEdit", new { id = item.Id, FullName = item.FullName, StudentNo = item.StudentNo, ClassNo = item.ClassNo })-- @item.FullName - @item.ClassNo</li>
                 }
             </ul>  
         

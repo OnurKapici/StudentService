@@ -57,16 +57,28 @@ namespace ClientMvc5.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult StudentEdit(int Id)
+        public ActionResult StudentEdit(int Id, string FullName, string StudentNo, string ClassNo,int a=0)
+        {
+            HomePageViewModel Student = new HomePageViewModel();
+
+            Student.Id = Id;
+            Student.FullName = FullName;
+            Student.StudentNo = StudentNo;
+            Student.ClassNo = ClassNo;
+            return View(Student);
+        }
+
+        [HttpPost]
+        public ActionResult StudentEdit(int Id, string FullName, string StudentNo, string ClassNo)
         {
             using (StudentServices.StudentClient ServiceClient = new StudentServices.StudentClient())
             {
-                ServiceClient.EditStudent(Id);
+                ServiceClient.EditStudent(Id,FullName,StudentNo,ClassNo);
 
             }
             ViewBag.StudentEdit = "Öğrenci Düzenlendi";
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult About()

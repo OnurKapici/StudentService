@@ -1,4 +1,4 @@
-﻿
+﻿@model ClientMvc5.Models.HomePageViewModel
 @{
     ViewBag.Title = "StudentEdit";
 }
@@ -7,10 +7,11 @@
 
 <h3 style="color:darkgreen">@ViewBag.StudentEdit</h3>
 
-@using (Html.BeginForm("StudentCreate", "Home", FormMethod.Post, null))
+@using (Html.BeginForm("StudentEdit", "Home", FormMethod.Post, null))
 {
-    <input type="text" name="FullName" placeholder="Öğrenci Adı" />
-    <input type="text" name="StudentNo" placeholder="Öğrenci Numarası" />
-    <input type="text" name="ClassNo" placeholder="Öğrenci Sınıfı" />
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="text" name="FullName" value="@Model.FullName" placeholder="Öğrenci Adı" />
+    <input type="text" name="StudentNo" value="@Model.StudentNo" placeholder="Öğrenci Numarası" />
+    <input type="text" name="ClassNo" value="@Model.ClassNo" placeholder="Öğrenci Sınıfı" />
     <input type="submit" value="Kaydet" />
 }
